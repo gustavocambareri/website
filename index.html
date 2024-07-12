@@ -6,31 +6,42 @@
     <title>Lefka - Music Production and Sound Design</title>
     <style>
         body {
-            background-color: white;
-            color: white;
-            font-family: 'Times New Roman', Times, serif; /* Times New Roman font */
+
+            background: linear-gradient(rgb(165, 165, 165), rgb(214, 214, 214));
+            font-family: 'nunito'; /* Times New Roman font */
             margin: 0;
             padding: 0;
         }
         .container {
             width: 80%;
             margin: 50px auto;
+            margin-top: 20px;
             margin-left: 40px; /* Adjusted left margin */
             position: relative; /* Added positioning for container */
         }
         .titolone{
-            font-weight: bold;
-            width: 80%;
-            margin: 40px auto ;
-            margin-left: 40px; /* Adjusted left margin */
-            margin-bottom: 10px; /* Updated smaller bottom margin */
-            position: relative; /* Added positioning for container */
+            font-size: 3.5vw;
+            font-weight: normal; /* Font weight added */
+
+
+            margin: 30px;
+            margin-left: 40px;
+            margin-bottom: 20px;
+            color: rgb(139, 139, 139);
         }
+        .titolone-link {
+    color: inherit; /* Inherit text color */
+    text-decoration: none;
+    transition: opacity 0.2s ease; /* Add a subtle transition */
+}
         .title {
-            font-size: 20px;
+            font-size: 28px;
             font-weight: normal; /* Font weight added */
             margin-bottom: 20px;
-            color: blue;
+            color: rgb(129, 129, 129);
+        }
+        .title1{
+            margin-bottom: 0%;
         }
         .links {
             list-style-type: none;
@@ -40,7 +51,7 @@
             margin-bottom: 10px;
         }
         .links li a {
-            color: gray;
+            color: rgb(255, 255, 255);
             text-decoration: none;
             font-size: 20px;
             font-weight: normal; /* Same font weight as titles */
@@ -51,7 +62,7 @@
 </head>
 <body>
     <div class="titolone">
-        <div class="title">Lefka - Music Production and Sound Design</div>
+        <a href="https://www.instagram.com/lefkalefka/" target="_blank" class="titolone-link">Lefka - Music Production and Sound Design</a>
     </div>
     <div class="container">
         <div class="title">Music for Moving Image</div>
@@ -59,6 +70,12 @@
             <li><a href="https://www.instagram.com/p/C6LvPhPADue/" title="" target="_blank" data-image="francetv.jpg">Aux Jeux Streamers (Samsung, France TV)</a></li>
             <li><a href="https://www.youtube.com/watch?v=LE8ksXP7H-M&ab_channel=IATO" title="" target="_blank" data-image="deleino.jpg">Deleo Monument Boots commercial (Soundtrack)</a></li>
             <li><a href="https://vimeo.com/805537539?share=copy" title="" target="_blank" data-image="vasore.jpg">Vaso Re (Sound Design and Foley)</a></li>
+        </ul>
+
+        <div class="title">Installations</div>
+        <ul class="links">
+            <li><a href="https://open.spotify.com/intl-it/track/0VmyYcepWoQQ17Mw0vJQNQ?si=0abaa032fcd949aa" title="" target="_blank" data-image="ghostlight.jpg">Ghostlight (Sound for Installation)</a></li>
+            <li><a href="https://www.instagram.com/p/C7o40gyo2ai/?img_index=2" title="" target="_blank" data-image="sciu.jpg">Meet Me Halfway (Music and Sound Design for video game)</a></li>
         </ul>
 
         <div class="title">Production, Mix & Mastering</div>
@@ -70,17 +87,15 @@
 
         <div class="title">Releases</div>
         <ul class="links">
-            <li><a href="https://hide.bandcamp.com/album/hypermelancholy" title="" target="_blank" data-image="hypermelancholy.jpg">Hypermelancholy</a></li>
-            <li><a href="https://open.spotify.com/intl-it/album/5GnFEPUUQW6ZRIk6OLSkic?si=CnjtZO8vSaqf7ipXXypwqA" title="" target="_blank" data-image="mdb.jpg">Mondo Dei Bambini</a></li>
-            <li><a href="https://starshift1.bandcamp.com/" title="" target="_blank" data-image="logo.jpg">Bandcamp</a></li>
+            <li><a href="https://hide.bandcamp.com/album/hypermelancholy" title="" target="_blank" data-image="hypermelancholy.jpg">Hypermelancholy (Hide Productions)</a></li>
+            <li><a href="https://open.spotify.com/intl-it/album/5GnFEPUUQW6ZRIk6OLSkic?si=CnjtZO8vSaqf7ipXXypwqA" title="" target="_blank" data-image="mdb.jpg">Mondo Dei Bambini (Self-Released)</a></li>
+            <li><a href="https://starshift1.bandcamp.com/" title="" target="_blank" data-image="logo.jpg">Bandcamp Page</a></li>
         </ul>
 
-        <div class="title">Installations</div>
-        <ul class="links">
-            <li><a href="https://open.spotify.com/intl-it/track/0VmyYcepWoQQ17Mw0vJQNQ?si=0abaa032fcd949aa" title="" target="_blank" data-image="ghostlight.jpg">Ghostlight (Sound for Installation)</a></li>
-            <li><a href="https://www.instagram.com/p/C7o40gyo2ai/?img_index=2" title="" target="_blank" data-image="sciu.jpg">Meet Me Halfway</a></li>
-        </ul>
-    </div>
+
+        <div class="title">
+            <a href="mailto:gustavo.cambareri@gmail.com" target="_blank" class="titolone-link">Contact</a>
+        </div>
 
     <script>
         const links = document.querySelectorAll('.links li a');
@@ -96,7 +111,13 @@
                 imageElement.alt = 'Image';
                 imageElement.style.position = 'absolute';
                 imageElement.style.top = `${link.offsetTop}px`; // Position relative to the top of the link
-                imageElement.style.left = `${link.offsetLeft + link.offsetWidth + 300}px`; // Position just next to the link
+                 // Adjust left positioning based on screen width
+        const screenWidth = window.innerWidth;
+        if (screenWidth <= 768) {
+            imageElement.style.left = `${link.offsetLeft + link.offsetWidth + 10}px`; // Small offset for smaller screens
+        } else {
+            imageElement.style.left = `${link.offsetLeft + link.offsetWidth + 300}px`; // Larger offset for larger screens
+        }
                 imageElement.style.width = '15%'; // Scale to 15% of the original size
                 imageElement.style.height = 'auto'; // Maintain aspect ratio
                 imageElement.classList.add('hovered-image'); // Add a class for easier removal later
