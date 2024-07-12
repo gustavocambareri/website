@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lefka - Music Production and Sound Design</title>
+    <style>
+        body {
+            background-color: white;
+            color: white;
+            font-family: 'Times New Roman', Times, serif; /* Times New Roman font */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            margin-left: 40px; /* Adjusted left margin */
+            position: relative; /* Added positioning for container */
+        }
+        .titolone{
+            font-weight: bold;
+            width: 80%;
+            margin: 40px auto ;
+            margin-left: 40px; /* Adjusted left margin */
+            margin-bottom: 10px; /* Updated smaller bottom margin */
+            position: relative; /* Added positioning for container */
+        }
+        .title {
+            font-size: 20px;
+            font-weight: normal; /* Font weight added */
+            margin-bottom: 20px;
+            color: blue;
+        }
+        .links {
+            list-style-type: none;
+            padding: 0;
+        }
+        .links li {
+            margin-bottom: 10px;
+        }
+        .links li a {
+            color: gray;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: normal; /* Same font weight as titles */
+            font-style: normal; /* Reset font style */
+            transition: font-style 0.1s; /* Faster transition effect for font style */
+        }
+    </style>
+</head>
+<body>
+    <div class="titolone">
+        <div class="title">Lefka - Music Production and Sound Design</div>
+    </div>
+    <div class="container">
+        <div class="title">Music for Moving Image</div>
+        <ul class="links">
+            <li><a href="https://www.instagram.com/p/C6LvPhPADue/" title="" target="_blank" data-image="francetv.jpg">Aux Jeux Streamers (Samsung, France TV)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=LE8ksXP7H-M&ab_channel=IATO" title="" target="_blank" data-image="deleino.jpg">Deleo Monument Boots commercial (Soundtrack)</a></li>
+            <li><a href="https://vimeo.com/805537539?share=copy" title="" target="_blank" data-image="vasore.jpg">Vaso Re (Sound Design and Foley)</a></li>
+        </ul>
+
+        <div class="title">Production, Mix & Mastering</div>
+        <ul class="links">
+            <li><a href="https://open.spotify.com/intl-it/album/0WJZbdiEP23R3ygDgJlQjt?si=zbo4BdibTyGbt4SisL7EVw" title="" target="_blank" data-image="zero.jpg">ZERO</a></li>
+            <li><a href="https://open.spotify.com/intl-it/album/3eDFcxJw03sju2VY20tSKS?si=rdWI_PRiRba20YwyPNrB_g" title="" target="_blank" data-image="amore.jpg">Amore Cinema Discoteca</a></li>
+            <li><a href="https://open.spotify.com/intl-it/track/3hW08zvNhMEUbJaz8SSIeE?si=2649c9d6d0444f3f" title="" target="_blank" data-image="gin.jpg">GIN+</a></li>
+        </ul>
+
+        <div class="title">Releases</div>
+        <ul class="links">
+            <li><a href="https://hide.bandcamp.com/album/hypermelancholy" title="" target="_blank" data-image="hypermelancholy.jpg">Hypermelancholy</a></li>
+            <li><a href="https://open.spotify.com/intl-it/album/5GnFEPUUQW6ZRIk6OLSkic?si=CnjtZO8vSaqf7ipXXypwqA" title="" target="_blank" data-image="mdb.jpg">Mondo Dei Bambini</a></li>
+            <li><a href="https://starshift1.bandcamp.com/" title="" target="_blank" data-image="logo.jpg">Bandcamp</a></li>
+        </ul>
+
+        <div class="title">Installations</div>
+        <ul class="links">
+            <li><a href="https://open.spotify.com/intl-it/track/0VmyYcepWoQQ17Mw0vJQNQ?si=0abaa032fcd949aa" title="" target="_blank" data-image="ghostlight.jpg">Ghostlight (Sound for Installation)</a></li>
+            <li><a href="https://www.instagram.com/p/C7o40gyo2ai/?img_index=2" title="" target="_blank" data-image="sciu.jpg">Meet Me Halfway</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const links = document.querySelectorAll('.links li a');
+
+        links.forEach(link => {
+            link.addEventListener('mouseenter', (event) => {
+                const imageName = link.dataset.image;
+                const imagePath = `./${imageName}`; // Assuming images are in the same directory
+
+                // Create a new image element
+                const imageElement = document.createElement('img');
+                imageElement.src = imagePath;
+                imageElement.alt = 'Image';
+                imageElement.style.position = 'absolute';
+                imageElement.style.top = `${link.offsetTop}px`; // Position relative to the top of the link
+                imageElement.style.left = `${link.offsetLeft + link.offsetWidth + 300}px`; // Position just next to the link
+                imageElement.style.width = '15%'; // Scale to 15% of the original size
+                imageElement.style.height = 'auto'; // Maintain aspect ratio
+                imageElement.classList.add('hovered-image'); // Add a class for easier removal later
+
+                // Append the image to the container
+                document.body.appendChild(imageElement);
+            });
+
+            link.addEventListener('mouseleave', () => {
+                // Remove the image element when leaving the link
+                const imageElement = document.querySelector('.hovered-image');
+                if (imageElement) {
+                    imageElement.parentNode.removeChild(imageElement);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
